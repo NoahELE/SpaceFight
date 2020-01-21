@@ -1,7 +1,10 @@
 import sys
+
 import pygame
+
 from alien import Alien
 from bullet import Bullet
+
 
 def check_events(sf_settings, screen, ship, bullets):
     for event in pygame.event.get():
