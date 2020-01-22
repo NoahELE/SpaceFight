@@ -18,3 +18,4 @@ deploy_key_rsa
 __pycache__
 Pipfile
 Pipfile.lock
+.spec
