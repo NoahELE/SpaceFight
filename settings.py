@@ -9,6 +9,7 @@ class Settings():
 
         #ship
         self.ship_speed = 0.5
+        self.ship_limit = 3
 
         #bullet
         self.bullet_speed = 2
@@ -20,4 +21,4 @@ class Settings():
         #alien
         self.alien_speed = 0.5
         self.alien_direction = 1
-        self.fleet_drop_speed = 5
+        self.fleet_drop_speed = 10

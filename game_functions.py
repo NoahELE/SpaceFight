@@ -1,4 +1,5 @@
 import sys
+from time import sleep
 
 import pygame
 
@@ -89,9 +90,24 @@ def create_fleet(sf_settings, screen, ship, aliens):
         for alien_number in range(number_aliens_x):
             create_alien(sf_settings, screen, aliens, alien_number, row_number)
 
-def update_aliens(sf_settings, aliens):
+def ship_hit(sf_settings, stats, screen, ship, aliens, bullets):
+    stats.ships_left -= 1
+
+    alien.empty()
+    bullets.empty()
+
+    create_fleet(sf_settings, screen, ship, aliens)
+    ship.center_ship()
+
+    #pause
+    sleep(1)
+
+def update_aliens(sf_settings,stats, screen, ship, aliens, bullets):
     check_fleet_edges(sf_settings, aliens)
     aliens.update()
+
+    if pygame.sprite.spritecollideany(ship, aliens):
+        ship_hit(sf_settings, stats, screen, ship, aliens, bullets)
 
 def check_fleet_edges(sf_settings, aliens):
     for alien in aliens.sprites():
