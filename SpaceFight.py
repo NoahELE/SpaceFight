@@ -5,7 +5,7 @@ import game_functions as gf
 from game_stats import GameStats
 from settings import Settings
 from ship import Ship
-
+from button import Button
 
 def run_game():
     # Initialise the game and create a screen object
@@ -14,6 +14,8 @@ def run_game():
     sf_settings = Settings()
     screen = pygame.display.set_mode((sf_settings.screen_width, sf_settings.screen_height))
     pygame.display.set_caption('Space Fight')
+
+    play_button = Button(sf_settings, screen, 'play')
 
     stats = GameStats(sf_settings)
 
@@ -35,6 +37,6 @@ def run_game():
             gf.update_bullets(sf_settings, screen, ship, aliens, bullets)
             gf.update_aliens(sf_settings, stats, screen, ship, aliens, bullets)
 
-        gf.update_screen(sf_settings, screen, ship, aliens, bullets)
+        gf.update_screen(sf_settings, screen, stats, ship, aliens, bullets, play_button)
 
 run_game()

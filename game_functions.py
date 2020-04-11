@@ -38,12 +38,15 @@ def fire_bullets(sf_settings, screen, ship, bullets):
         new_bullet = Bullet(sf_settings, screen, ship)
         bullets.add(new_bullet)
 
-def update_screen(sf_settings, screen, ship, aliens, bullets):
+def update_screen(sf_settings, screen, stats, ship, aliens, bullets, play_button):
     screen.fill(sf_settings.bg_color)
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     ship.blitme()
     aliens.draw(screen)
+
+    if not stats.game_active:
+        play_button.draw_button()
 
     pygame.display.flip()
 
